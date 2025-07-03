@@ -1,1 +1,133 @@
-# smth
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>PROTOCOL ACCESS SYSTEM</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .terminal-header {
+      color: #fff;
+      font-size: 14px;
+      background: #1a1a1a;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 6px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    #loginBox, #linkBox {
+      border: 2px solid #ff3c3c;
+      background: rgba(0,0,0,0.85);
+      padding: 30px 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 25px red;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #ff3c3c;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      animation: blink 1s infinite;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #00ffcc;
+      margin-bottom: 25px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    input {
+      padding: 12px;
+      width: 90%;
+      background: black;
+      border: 1px solid #00ffcc;
+      color: #00ffcc;
+      font-size: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 30px;
+      background-color: #00ffcc;
+      color: black;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff3c3c;
+      color: white;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #00ffcc;
+      font-size: 16px;
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
+    #error {
+      color: #ff3c3c;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-header">[ INITIATE PROTOCOL ACCESS SEQUENCE ]</div>
+
+  <div id="loginBox">
+    <h1>!! File Z !!</h1>
+    <h2>Authorization Required</h2>
+    <input type="password" id="password" placeholder="Enter Protocol Code"><br>
+    <button onclick="checkPassword()">EXECUTE</button>
+    <p id="error"></p>
+  </div>
+
+  <div id="linkBox" style="display:none;">
+    <h2>✅ ACCESS GRANTED - SECURE LINK UNLOCKED</h2>
+    <a href="https://drive.google.com/drive/folders/1M9TyhDZycvy-atcTsqoPOX05QIEXtdrT" target="_blank">▶️ OPEN PROTOCOL FILE</a>
+  </div>
+
+  <script>
+    const correctPassword = "faza23";
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      if (input === correctPassword) {
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("linkBox").style.display = "block";
+      } else {
+        document.getElementById("error").innerText = "⚠️ ACCESS DENIED - INVALID CODE";
+      }
+    }
+  </script>
+</body>
+</html>
